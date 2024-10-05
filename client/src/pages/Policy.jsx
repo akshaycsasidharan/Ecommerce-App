@@ -1,9 +1,9 @@
 import React from "react";
-import Layout from "./../components/Layout/Layout";
+import Layout from "./../components/Layout/Layout.jsx";
 
 const Policy = () => {
   return (
-    <Layout title={"Privacy Policy"}>
+    <Layout>
       <div className="row contactus ">
         <div className="col-md-6 ">
           <img

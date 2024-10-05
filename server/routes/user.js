@@ -1,5 +1,5 @@
 import express from "express";
-import { verifyToken } from "../middlewares/auth.js";
+// import { verifyToken } from "../middlewares/auth.js";
 
 import { register, login } from "../controllers/user.js";
 

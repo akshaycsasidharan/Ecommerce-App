@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Layout from "./../components/Layout/Layout";
+import Layout from "./../components/Layout/Layout.jsx";
 
 const Pagenotfound = () => {
   return (
-    <Layout title={"go back- page not found"}>
+    <Layout>
       <div className="pnf">
         <h1 className="pnf-title">404</h1>
         <h2 className="pnf-heading">Oops ! Page Not Found</h2>

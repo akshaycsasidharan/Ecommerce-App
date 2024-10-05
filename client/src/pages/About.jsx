@@ -1,16 +1,13 @@
 import React from "react";
-import Layout from "./../components/Layout/Layout";
+import Layout from "./../components/Layout/Layout.jsx";
+import aboutimage from "../assets/images/about.jpeg";
 
 const About = () => {
   return (
-    <Layout title={"About us - Ecommer app"}>
+    <Layout>
       <div className="row contactus ">
         <div className="col-md-6 ">
-          <img
-            src="/images/about.jpeg"
-            alt="contactus"
-            style={{ width: "100%" }}
-          />
+          <img src={aboutimage} alt="about" style={{ width: "100%" }} />
         </div>
         <div className="col-md-4">
           <p className="text-justify mt-2">
