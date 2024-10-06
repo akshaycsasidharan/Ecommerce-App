@@ -51,9 +51,9 @@ export const register = async (req, res) => {
 
 export const login = async (req, res) => {
   try {
-    const { username, password } = req.body;
+    const { email, password } = req.body;
 
-    const user = await User.findOne({ username });
+    const user = await User.findOne({ email });
 
     if (!user) {
       return res.status(404).send({ message: "user not found" });
@@ -70,9 +70,9 @@ export const login = async (req, res) => {
     });
 
     return res.status(200).send({
+      success: true,
       message: "logined successfully",
       userdetails: {
-        name: user.username,
         email: user.email,
         phone: user.phone,
       },

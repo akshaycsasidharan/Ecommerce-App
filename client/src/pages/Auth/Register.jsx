@@ -3,6 +3,7 @@ import Layout from "./../../components/Layout/Layout.jsx";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
+import "../../styles/AuthStyle.css";
 const REST_APP_API = import.meta.env.VITE_APP_API;
 
 const Register = () => {
@@ -36,7 +37,7 @@ const Register = () => {
 
   return (
     <Layout>
-      <div className="register ">
+      <div className="form-container ">
         <form onSubmit={handleSubmit}>
           <h4 className="title">REGISTER FORM</h4>
           <div className="mb-3">
