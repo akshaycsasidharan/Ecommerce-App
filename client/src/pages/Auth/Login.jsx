@@ -4,19 +4,21 @@ import Layout from "./../../components/Layout/Layout.jsx";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/auth.jsx";
 
 const REACT_APP_API = import.meta.env.VITE_APP_API;
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [auth, setAuth] = useAuth();
 
   const navigate = useNavigate();
 
   const handleloginsubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(`${REACT_APP_API}/api/user/login`); // Log the API URL for debugging
+      console.log(`${REACT_APP_API}/api/user/login`);
 
       const res = await axios.post(`${REACT_APP_API}/api/user/login`, {
         email,
@@ -25,6 +27,9 @@ const Login = () => {
 
       if (res && res.data.success) {
         toast.success("Login Successfully");
+
+        setAuth({ ...auth, user: res.data.user, token: res.data.token });
+        localStorage.setItem("auth", JSON.stringify(res.data));
         navigate("/");
       } else {
         toast.error(res.data.message);
@@ -50,7 +55,7 @@ const Login = () => {
               id="exampleInputEMAIL1"
               placeholder="Enter Your Email"
               required
-              autoFocus
+              //   autoFocus
             />
           </div>
 
@@ -63,7 +68,7 @@ const Login = () => {
               id="exampleInputPASSWORD1"
               placeholder="Enter Your password"
               required
-              autoFocus
+              //   autoFocus
             />
           </div>
 

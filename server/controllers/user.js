@@ -72,7 +72,7 @@ export const login = async (req, res) => {
     return res.status(200).send({
       success: true,
       message: "logined successfully",
-      userdetails: {
+      user: {
         email: user.email,
         phone: user.phone,
       },
