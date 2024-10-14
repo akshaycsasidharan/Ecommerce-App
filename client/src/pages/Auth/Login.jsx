@@ -3,7 +3,7 @@ import "../../styles/AuthStyle.css";
 import Layout from "./../../components/Layout/Layout.jsx";
 import axios from "axios";
 import toast from "react-hot-toast";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useAuth } from "../../context/auth.jsx";
 
 const REACT_APP_API = import.meta.env.VITE_APP_API;
@@ -14,11 +14,12 @@ const Login = () => {
   const [auth, setAuth] = useAuth();
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleloginsubmit = async (e) => {
     e.preventDefault();
     try {
-      console.log(`${REACT_APP_API}/api/user/login`);
+      // console.log(`${REACT_APP_API}/api/user/login`);
 
       const res = await axios.post(`${REACT_APP_API}/api/user/login`, {
         email,
@@ -30,7 +31,7 @@ const Login = () => {
 
         setAuth({ ...auth, user: res.data.user, token: res.data.token });
         localStorage.setItem("auth", JSON.stringify(res.data));
-        navigate("/");
+        navigate(location.state || "/dashboard");
       } else {
         toast.error(res.data.message);
       }
@@ -70,6 +71,18 @@ const Login = () => {
               required
               //   autoFocus
             />
+          </div>
+
+          <div className="mb-3">
+            <button
+              type="submit"
+              className="btn btn-primary"
+              onClick={() => {
+                navigate("/forgot-password");
+              }}
+            >
+              FORGOT PASSWORD
+            </button>
           </div>
 
           <button type="submit" className="btn btn-primary">
