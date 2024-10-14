@@ -45,7 +45,6 @@ const ForgotPassword = () => {
               id="exampleInputEMAIL1"
               placeholder="Enter Your Email"
               required
-              //   autoFocus
             />
           </div>
 
@@ -58,7 +57,6 @@ const ForgotPassword = () => {
               id="exampleInputFORGOTPASSWORD1"
               placeholder="Enter Your new password"
               required
-              //   autoFocus
             />
           </div>
 
