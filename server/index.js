@@ -2,7 +2,9 @@ import express from "express";
 import mongoose from "mongoose";
 import helmet from "helmet";
 import dotenv from "dotenv";
-import userRoutes from "./routes/user.js";
+import userRoutes from "./routes/auth.js";
+import categoryRoutes from "./routes/CategoryRoute.js";
+import productRoutes from "./routes/productRoute.js";
 import cors from "cors";
 dotenv.config();
 
@@ -14,6 +16,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/user", userRoutes);
+app.use("/api/category", categoryRoutes);
+app.use("/api/product", productRoutes);
 
 const PORT = process.env.PORT || 3001;
 

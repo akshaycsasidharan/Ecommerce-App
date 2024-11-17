@@ -1,12 +1,12 @@
 import express from "express";
-// import { verifyToken } from "../middlewares/auth.js";
+import { verifyToken, isAdmin } from "../middlewares/auth.js";
 
 import {
   register,
   login,
-  requrireSignIn,
+  testcontroller,
   ForgotPassword,
-} from "../controllers/user.js";
+} from "../controllers/authController.js";
 
 const router = express.Router();
 
@@ -14,8 +14,10 @@ router.post("/register", register);
 
 router.post("/login", login);
 
-router.get("/user-auth", requrireSignIn);
-
 router.post("/forgot-password", ForgotPassword);
+
+router.get("/user-auth", verifyToken, testcontroller);
+
+router.get("/admin-auth", verifyToken, isAdmin, testcontroller);
 
 export default router;

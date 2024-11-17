@@ -7,15 +7,31 @@ import Pagenotfound from "./pages/Pagefound.jsx";
 import Register from "./pages/Auth/Register.jsx";
 import Login from "./pages/Auth/Login.jsx";
 import Dashboard from "./pages/user/Dashboard.jsx";
-import PrivateRoute from "./components/Routes/Private.jsx";
+import UserRoute from "./components/Routes/UserRoute.jsx";
+import AdminRoute from "./components/Routes/AdminRoute.jsx";
 import ForgotPassword from "./pages/Auth/ForgotPassword.jsx";
+import AdminDashboard from "./pages/Admin/AdminDashboard.jsx";
+import CreateProduct from "./pages/Admin/CreateProduct.jsx";
+import CreateCategory from "./pages/Admin/CreateCategory.jsx";
+import User from "./pages/Admin/User.jsx";
+import Orders from "./pages/user/Orders.jsx";
+import Profile from "./pages/user/Profile.jsx";
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/dashboard" element={<PrivateRoute />}>
-          <Route path="" element={<Dashboard />} />
+        <Route path="/dashboard" element={<UserRoute />}>
+          <Route path="user" element={<Dashboard />} />
+          <Route path="user/orders" element={<Orders />} />
+          <Route path="user/profile" element={<Profile />} />
+        </Route>
+
+        <Route path="/dashboard" element={<AdminRoute />}>
+          <Route path="admin" element={<AdminDashboard />} />
+          <Route path="admin/createcategory" element={<CreateCategory />} />
+          <Route path="admin/createproduct" element={<CreateProduct />} />
+          <Route path="admin/users" element={<User />} />
         </Route>
 
         <Route path="/register" element={<Register />} />

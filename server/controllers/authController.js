@@ -76,6 +76,7 @@ export const login = async (req, res) => {
         email: user.email,
         name: user.name,
         phone: user.phone,
+        role: user.role,
       },
       token,
     });
@@ -84,7 +85,7 @@ export const login = async (req, res) => {
   }
 };
 
-export const requrireSignIn = async (req, res) => {
+export const testcontroller = async (req, res) => {
   try {
     res.status(200).send({ ok: true });
   } catch (error) {
